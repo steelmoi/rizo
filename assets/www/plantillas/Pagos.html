@@ -1,0 +1,111 @@
+<div id='pagos'>
+	<table width='100%'>
+		<tr>
+			<td align='left'><label for="cmbNegocioPagos"> Customer: </label></td>			
+		</tr>
+		<tr>
+			<td colspan="2">
+				<select name='cmbNegocioPagos' data-theme="a"
+				data-mini="true" id='cmbNegocioPagos'
+				onChange='cmbNegocioPagos_change(this);' class="select"></select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" colspan='2'>
+				<!-- button id="btnOtrosClientes" data-icon="search" name="btnOtrosClientes" data-theme="b" data-mini="true" onClick="btnOtrosClientes_Click();">Otros</button -->
+				<a href="#" id="btnOtrosClientes" data-icon="search"  data-role="button" name="btnOtrosClientes" data-theme="a" data-mini="true" onClick="btnOtrosClientes_Click();">Others</a>
+			</td>
+		</tr>
+		
+		<tr>
+			<td align='left'><label for="txtFactura">Invoice: </label></td>
+			<td>
+				<input size='15' data-mini="true" type='text' id='txtFactura' name='txtFactura' onblur="txtFactura_blur(this);">
+			</td>
+		</tr>		
+
+		<tr>
+			<td align='left'><label for="cmbTipoPago">Select Payment: </label></td>
+			<td><!--   -->
+				<select data-mini="true" name="cmbTipoPago" data-theme="a" id='cmbTipoPago' class="select" onChange='cmbTipoPago_Change(this);'>
+						<option value='1'>Cash</option>
+						<option value='2'>Cheque</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td align='left'><label for="txtNumCheque">#Check: </label></td>
+			<td>
+				<input size='5' data-mini="true" type='text' id='txtNumCheque' name='txtNumCheque'>
+			</td>
+		</tr>
+
+		<tr>
+			<td align='left'><label for="txtMonto">Amount: </label></td>
+			<td>
+				<input size='5' data-mini="true" type='text' id='txtMonto' name='txtMonto'>
+			</td>
+		</tr>
+
+		<tr>
+			<td align='left'><label for="txtComentarios">Comments: </label></td>
+			<td>
+				<input data-mini="true" type='text' id='txtComentarios' name='txtComentarios'>
+			</td>
+		</tr>
+		
+		<tr>
+			<td align='left' >
+				<input type='hidden' id='hfPagos' name='hfPagos' value=''>
+				<input type='hidden' id='hfTotalFactura' name='hfTotalFactura' value=''>
+				<!-- button id='btnAgregarPago' data-mini="true" name='btnAgregarPago'
+					data-theme="b" data-icon="plus" onClick="btnAgregarPago_Click();">Agregar
+					Pago</button -->
+				<a href="#" id='btnAgregarPago' name='btnAgregarPago'
+				onClick='btnAgregarPago_Click();' data-role="button"
+				data-theme="a" data-icon="plus">Add Payment</a>
+			</td>
+			<td align='right'>		
+				<!-- button id='btnQuitarPago' data-mini="true" name='btnQuitarPago'
+					data-theme="b" data-icon="minus" onClick="btnQuitarPago_Click('tblPagos');">Quitar
+					Pago</button -->
+				<a href="#" id='btnQuitarPago' name='btnQuitarPago'
+				onClick='btnQuitarPago_Click("tblPagos");' data-role="button"
+				data-theme="a" data-icon="plus">Delete Payment</a>
+				</td>
+		</tr>
+
+		<tr>
+			<td colspan='2'>
+				<table border="2" id="tblPagos" width="100%">
+					<tr class='heading-tablas'>
+						<td></td>
+						<td>Invoice</td>
+						<td>Date</td>
+						<td>Type</td>
+						<td>Amount</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr>
+			<td align='center' colspan='2'>				
+				<br><br>
+				<!-- button id='btnCancelarPagos' name='btnCancelarPagos'
+					data-theme="b" data-icon="delete" onClick="btnCancelarPagos_Click();">Cancelar</button -->
+					
+				<a href="#" id='btnCancelarPagos' name='btnCancelarPagos'
+				onClick='btnCancelarPagos_Click();' data-role="button"
+				data-theme="b" data-icon="delete">Cancel</a>
+			</td>
+		</tr>
+	</table>
+</div>
+<script>
+	function onPagos()
+	{
+		
+	}
+</script>		

@@ -1,0 +1,142 @@
+<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<div id="searchCustomer">
+	<div class="row">
+		<div class="col-xs-12">
+			
+			<div id="clientesVentas">
+				<table width='100%'>
+					<tr>
+						<td>
+							<select name="slider" id="cmbFiltro" onChange="cmbFiltroPay_Change(this);">
+									<option value="Ruta">Only Route  </option>
+									<option value="Otros">Others  </option>
+							</select><br><br>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div data-role="content" id="customersContent">
+								
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+	
+		</div>
+	</div>
+</div>
+
+<div id='payments' style='display: none;'>
+	<div class="row">
+		<div class="col-xs-12">
+			<table width='100%'>
+				<tr>
+					<td align='left'><label for="txtFactura">Invoice: </label></td>
+					<td><input  data-mini="true" type='text'
+						id='txtFactura' name='txtFactura'> <!--  onblur="txtFacturaPay_blur(this);"  -->
+					</td>					
+				</tr>
+				
+				<tr>
+					<td colspan="2"><a href="#" id='btnSearch' width="80px" name='btnSearch'
+						onClick='txtFacturaPay_blur();' data-mini="true" data-role="button" data-theme="a"
+						data-icon="search">Search</a></td>
+				</tr>
+
+				<tr>
+					<td align='left'><label for="cmbTipoPago">Select
+							Payment: </label></td>
+					<td><select data-mini="true" name="cmbTipoPago"
+						data-theme="a" id='cmbTipoPago' class="select"
+						onChange='cmbTipoPago_Change(this);'>
+							<option value='1'>Cash</option>
+							<option value='2'>Cheque</option>
+					</select></td>
+				</tr>
+
+				<tr>
+					<td align='left'><label for="txtNumCheque">#Check: </label></td>
+					<td><input size='5' data-mini="true" type='text'
+						id='txtNumCheque' name='txtNumCheque'> <input
+						type="hidden" id="Cliente" name="Cliente" value=""></td>
+				</tr>
+
+				<tr>
+					<td align='left'><label for="txtTotal">Total: </label></td>
+					<td><input size='5' data-mini="true" type='text'
+						id='txtTotal' name='txtTotal'></td>
+				</tr>
+
+				<tr>
+					<td align='left'><label for="txtMonto">Amount: </label></td>
+					<td><input size='5' data-mini="true" type='text'
+						id='txtMonto' name='txtMonto'></td>
+				</tr>
+
+				<tr>
+					<td align='left'><label for="txtComentarios">Comments:
+					</label></td>
+					<td><input data-mini="true" type='text'
+						id='txtComentarios' name='txtComentarios'></td>
+				</tr>
+
+				<tr>
+					<td align='left'><input type='hidden' id='hfPagos'
+						name='hfPagos' value=''> <input type='hidden'
+						id='hfTotalFactura' name='hfTotalFactura' value=''> <!-- button id='btnAgregarPago' data-mini="true" name='btnAgregarPago'
+					data-theme="b" data-icon="plus" onClick="btnAgregarPago_Click();">Agregar
+					Pago</button --> <a href="#" id='btnAgregarPago'
+						onClick='btnAddPay_Click();' data-role="button" data-theme="a"
+						data-mini="true" data-icon="plus">Add Payment</a></td>
+					
+					<td align='right'>
+						<!-- button id='btnQuitarPago' data-mini="true" name='btnQuitarPago'
+					data-theme="b" data-icon="minus" onClick="btnQuitarPago_Click('tblPagos');">Quitar
+					Pago</button --> <a href="#" id='btnQuitarPago'
+						onClick='btnQuitarPago_Click("tblPagos");' data-role="button"
+						data-theme="a" data-mini="true" data-icon="less">Delete
+							Payment</a>
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan='2'>
+						<table border="2" id="tblPagos" width='100%'
+							class="table table-striped">
+							<tr class='heading-tablas'>
+								<td></td>
+								<td>Invoice</td>
+								<td>Date</td>
+								<td>Customer</td>
+								<td>Amount</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><br></td>
+				</tr>
+				<tr>
+					<td align='center'> <a href="#"
+						id='btnCancelarPagos' name='btnCancelarPagos'
+						onClick='cancelPayView();' data-role="button" data-theme="a"
+						data-mini="true" data-icon="delete">Cancel</a></td>
+
+					<td align='center' >
+						<a href="#" id='btnPrintPagos' name='btnPrintPagos'
+						onClick='btnPrintPagos_click();' data-role="button" data-theme="a"
+						data-mini="true" data-icon="grid">Print</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+
+<script>
+	function onPayments()
+	{
+		
+	}
+</script>

@@ -1,0 +1,18 @@
+<ul id="lvClienteVentas"
+	data-filter-placeholder="Select a customer" 
+	data-role="listview" data-mini="true" data-autodividers="false"
+	data-filter="true" data-inset="true">
+	<!-- data-inset="true" ocupa todo el ancho dela pantalla -->
+	<br> 
+	{{#each Customers}}
+	<li data-theme="b"><a href="#"
+		onClick="goToPaymentView('{{id_cliente}}');">
+
+			<h1>{{id_cliente}}/{{Nombre}}</h1>
+			<p>
+				<br>
+				<strong>{{domicilio}}</strong>
+			</p>
+	</a></li> 
+	{{/each}}
+</ul>

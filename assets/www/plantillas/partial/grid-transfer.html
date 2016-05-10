@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<table id='tblTraspasos' class="table table-striped">
+	<thead>
+		<tr>
+			<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+			<th>Code</th>
+			<th>Name</th>
+			<th>Date</th>								
+		</tr>
+	</thead>
+	
+	<tbody>
+		{{#each Traspasos}}
+			<tr>
+				<td align='left'><input type='radio' value="{{id_movimiento_enc}}" data-mini='true' name='rbTraspaso' id='rbTraspaso' class='custom' /></td>
+				<td>{{id_movimiento_enc}}</td>
+				<td>{{nombre_ruta}}</td>
+				<td>{{fecha_entrega}}</td>
+			</tr>
+		{{/each}}
+	</tbody>
+</table>

@@ -1,0 +1,20 @@
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+
+<div data-role="content">
+	<ul id="lvClienteVentas"
+		data-filter-placeholder="Seleccione un cliente" 
+		data-role="listview" data-mini="true" data-autodividers="false"
+		data-filter="true" data-inset="true">
+		<!-- data-inset="true" ocupa todo el ancho dela pantalla -->
+		<br>
+		{{#each accounts}}
+			<li data-theme="a">
+				<a href="#" onClick="btnDetailAccount('{{id_cliente}}');">						
+					<h1>{{id_cliente}} / {{Nombre}}</h1>
+					<p><br><strong>{{domicilio}}</strong></p>	
+				</a>
+			</li>
+		{{/each}}
+	</ul>
+</div>

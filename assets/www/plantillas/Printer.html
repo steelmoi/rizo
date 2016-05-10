@@ -1,0 +1,54 @@
+<div id="Printer">
+	<div class= "gridPrinter">
+		<table border="1" width="100%" id='tblPrinters'>
+			<tr>
+				<td>Name</td>
+				<td>MAC</td>
+				<td>Type</td>
+				<td>Default</td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+	<p>
+	<table width="100%">
+		<tr>
+			<td>
+				<fieldset data-role="controlgroup" >
+					<label for="bt-devices-select">Device: </label>
+					<select id='bt-devices-select'></select>
+				</fieldset>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<fieldset data-role="controlgroup" >
+					<label for="cmbTipoImpresora">Type: </label>
+					<select id='cmbTipoImpresora'>
+						<option value='2'>Datamax</option>
+						<option value='1'>Zebra</option>
+					</select>
+				</fieldset>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<fieldset data-role="controlgroup" >
+					<label for="txtNombreImp">Name: </label>
+					<input type='text' name='txtNombreImp' id='txtNombreImp'>
+				</fieldset>
+			</td>
+		</tr>
+	</table>
+		<!--  <button id='btnbuscarDispositivos' onClick="btnbuscarDispositivos_Click();">Buscar Dispositivos</button>
+		<button id='btnGuardaImpresora' onClick="btnGuardaImpresora_Click();">Guardar Impresora</button>  -->
+		<a hrf="#" data-theme="a" data-role="button" data-icon="search" id='btnbuscarDispositivos' onClick="btnbuscarDispositivos_Click();">Search Devices</a>
+	</p>
+	<br />
+</div>
+
+<script>
+	function onPrinter()
+	{
+	}
+</script>

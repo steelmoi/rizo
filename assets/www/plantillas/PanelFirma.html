@@ -1,0 +1,157 @@
+<div id='PanelFirma'>
+	<canvas id="can" width="300" height="300" ></canvas>
+	<!-- div id="clr">
+	<div style="background-color:black;"></div>
+	<div style="background-color:red;"></div>
+	<div style="background-color:green;"></div>
+	<div style="background-color:orange;"></div>
+	<div style="background-color:#FFFF00;"></div>
+	<div style="background-color:#F43059;"></div>
+	<div style="background-color:#ff00ff;"></div>
+	<div style="background-color:#9ecc3b;"></div>
+	<div style="background-color:#fbd;"></div>
+	<div style="background-color:#fff460;"></div>
+	<div style="background-color:#F43059;"></div>
+	<div style="background-color:#82B82C;"></div>
+	<div style="background-color:#0099FF;"></div>
+	<div style="background-color:#ff00ff;"></div>
+	<div style="background-color:rgb(128,0,255);"></div>
+	<div style="background-color:rgb(255,128,0);"></div>
+	<div style="background-color:rgb(153,254,0);"></div>
+	<div style="background-color:rgb(18,0,255);"></div>
+	<div style="background-color:rgb(255,28,0);"></div>
+	<div style="background-color:rgb(13,54,0);"></div>
+	</div -->
+	<br>
+	<a id="limpiar" href="#">Limpiar</a>
+	<a id="borrador" href="#">Borrador</a>
+	<a id="imagen" href="#">Imagen</a>
+</div>
+<script>
+	function onPanelFirma()
+	{
+	}
+	
+	$(document).ready(function(){
+		var clic=false;
+		var xCoord,yCoord="";
+		var canvas=document.getElementById("can");
+		var cntx=canvas.getContext("2d");
+		cntx.strokeStyle="black";
+		cntx.lineWidth=5;
+		cntx.lineCap="round";
+		cntx.fillStyle="#fff";
+		cntx.fillRect(0,0,canvas.width,canvas.height);
+		
+		canvas.addEventListener("touchstart",empezarPintar,false);
+        canvas.addEventListener("touchend",terminarPintar,false);
+
+		$("#can").mousedown(function(canvas){
+			clic=true;
+			cntx.save();
+			xCoord=canvas.pageX-this.offsetLeft;
+			yCoord=canvas.pageY-this.offsetTop;
+		});
+		
+		$(document).mouseup(function(){
+			clic=false
+		});
+
+		$(document).click(function(){
+			clic=false
+		});
+
+		$("#can").mousemove(function(canvas){
+			if(clic==true){
+				cntx.beginPath();
+				cntx.moveTo(canvas.pageX-this.offsetLeft,canvas.pageY-this.offsetTop);
+				cntx.lineTo(xCoord,yCoord);
+				cntx.stroke();
+				cntx.closePath();
+				xCoord=canvas.pageX-this.offsetLeft;
+				yCoord=canvas.pageY-this.offsetTop
+			}
+		});
+		
+
+		$("#clr > div").click(function(){
+			cntx.strokeStyle=$(this).css("background-color");
+		});
+							
+		$("#borrador").click(function(){
+			cntx.strokeStyle="#fff"
+		});
+				
+		$("#limpiar").click(function(){
+			cntx.fillStyle="#fff";
+			cntx.fillRect(0,0,canvas.width, canvas.height);
+			cntx.strokeStyle="black";
+			cntx.fillStyle="black"
+		})
+		
+		//http://www.html5rocks.com/es/mobile/touch/
+		function empezarPintar(e){
+   			var clientX = 0;
+    		var clientY = 0;
+    		var offsetLeft = 0;
+    		var offsetTop = 0;
+    		
+    		cntx.save();
+    		
+    		cntx.beginPath();      
+    		if (e.targetTouches.length == 1) {
+      			var touch = e.targetTouches[0];
+      			clientX =touch.clientX;
+      			clientY =touch.clientY;
+      			offsetLeft = canvas.offsetLeft;
+      			offsetTop = canvas.offsetTop;
+            
+      			cntx.moveTo(parseInt(clientX) - parseInt(offsetLeft), parseInt(clientY) - parseInt(offsetTop));      
+      			canvas.addEventListener("touchmove",pintar,false);
+    		}    
+		}
+
+		/*
+                terminarPintar(e) se ejecuta al soltar el boton izquierdo, y elimina el listener para 
+                mousemove
+ 		*/
+
+		function terminarPintar(e){
+    		canvas.removeEventListener("touchmove",pintar,false);    
+		}
+
+		/*
+                pintar(e) se ejecuta cada vez que movemos el raton con el boton izquierdo pulsado.
+                Con cada movimiento dibujamos una nueva linea hasta la posicion actual del raton en pantalla.
+ 		*/
+
+		function pintar(e) {
+    		if (e.targetTouches.length == 1) {
+        		var touch = e.targetTouches[0];
+		        
+        		cntx.lineTo(parseInt(touch.clientX) -canvas.offsetLeft, parseInt(touch.clientY)-canvas.offsetTop);
+        		cntx.stroke();
+        		
+        		cntx.closePath();
+        		        		
+				xCoord=canvas.pageX-this.offsetLeft;
+				yCoord=canvas.pageY-this.offsetTop
+    		}
+		}
+		
+		//$("#imagen").click(function(){
+		function getImagenFirma()
+		{
+			if(canvas != undefined)
+			{
+				var image = new Image();
+				image.src = canvas.toDataURL("image/png");
+				alert(image);
+				return image;
+			}
+			alert("Null");
+			return null;
+		//})
+		}
+	})
+</script>

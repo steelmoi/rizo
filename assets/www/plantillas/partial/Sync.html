@@ -1,0 +1,25 @@
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+<div class="row">
+	 <div class="col-xs-12">
+		<div id="div_sync">	
+			
+			<form>
+				<fieldset data-role="controlgroup">
+			        <legend></legend>
+					{{#each options}}
+					    <label>
+					        <input type="checkbox" name="{{name}}" id="{{name}}" value="{{name}}"> <label for="{{name}}">{{label}}</label>
+					    </label>
+				    {{/each}}
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-xs-12">
+		<a href="#"  id='btnSyncData' name='btnSyncData' onClick='btnSyncData_Click();' data-role="button" data-theme="a" data-icon="check">Sync</a>
+	</div>
+</div>

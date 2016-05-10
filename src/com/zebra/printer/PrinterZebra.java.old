@@ -1,0 +1,139 @@
+package com.zebra.printer;
+
+import org.apache.cordova.api.Plugin;
+import org.apache.cordova.api.PluginResult;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import com.zebra.android.comm.BluetoothPrinterConnection;
+import com.zebra.android.comm.ZebraPrinterConnection;
+import com.zebra.android.comm.ZebraPrinterConnectionException;
+
+import android.os.Looper;
+import android.util.Log;
+
+public class PrinterZebra extends Plugin {
+	public final String ACTION_CONNECT ="connect";
+	public final String ACTION_ISCONNECTED = "isConnected";
+	public final String ACTION_DISCONNECT = "disconnect";
+	public final String ACTION_IMPRIMIR = "printText";
+	
+	private boolean b_connected = false;
+	
+	private String mac_Address ="";
+	
+	ZebraPrinterConnection connection = null;
+	
+	public PrinterZebra(){
+		Log.d("Creando", "plugin");
+	}
+	
+	@Override
+	public PluginResult execute(String action, JSONArray args, 
+			String callbackId)
+	{
+		Log.d("action:", action);
+		Log.d("len:" ,  String.valueOf(args.length()));
+		Log.d("callbackId:" , callbackId);
+		if(action.equals(ACTION_CONNECT)){
+			try{
+				mac_Address = args.getString(0);
+				Log.d("mac_Address", mac_Address);
+				b_connected = true;
+				Connect();
+				while(b_connected){}
+				return new PluginResult(PluginResult.Status.OK, "User did not specify data to encode");				
+			}catch(Exception e){
+				b_connected = false;
+				return new PluginResult(PluginResult.Status.ERROR, e.getMessage());	
+			}
+		}else if(action.equals(ACTION_ISCONNECTED)){
+			JSONObject obj = isConnected();
+			if(obj == null)
+				return new PluginResult(PluginResult.Status.ERROR, obj);
+			else
+				return new PluginResult(PluginResult.Status.OK, obj);
+		}else if(action.equals(ACTION_DISCONNECT)){
+			disconnect();
+			return new PluginResult(PluginResult.Status.OK, "Desconectado");
+		}else if(action.equals(ACTION_IMPRIMIR)){
+			try{
+				String text = args.getString(0);
+				imprimir(text);
+				return new PluginResult(PluginResult.Status.OK, "1");
+			}catch(Exception e){
+				return new PluginResult(PluginResult.Status.ERROR, "0");
+			}
+		}
+
+		PluginResult r = new PluginResult(PluginResult.Status.NO_RESULT);
+		r.setKeepCallback(true);
+		return r;
+	}
+	
+	public void Connect(){
+		new Thread(new Runnable() {
+			public void run() {
+				try {             
+					Looper.prepare();
+					Log.d("connect", mac_Address);
+					connection = new BluetoothPrinterConnection(mac_Address);
+					connection.open();
+
+					Log.d("connect", "conectado");
+					byte[] configLabel = "Hola!".getBytes();                    
+					connection.write(configLabel);
+					b_connected = false;
+				} catch (ZebraPrinterConnectionException e) {
+					b_connected = false; 
+					Log.d("connect 1-", e.getMessage());
+				} finally {
+
+					//Looper.myLooper().quit();
+				}
+			}
+		}).start();
+	}
+	
+	public JSONObject isConnected(){
+		JSONObject obj = new JSONObject();
+		try{
+			if (connection != null && connection.isConnected())
+				obj.put("status", "1");
+			else
+				obj.put("status", "0");
+		}catch(Exception e){
+			return null;
+		}
+		return obj;
+	}
+	
+	public void imprimir(String a){
+		try {
+			  byte[] configLabel = a.getBytes();                    
+			if (connection == null){
+				connection.open();
+			    
+			}else{
+				connection.write(configLabel);
+			    b_connected= false;
+			}
+			    
+		} catch (ZebraPrinterConnectionException e) {
+			b_connected = false; 
+			Log.d("connect 1-", e.getMessage());
+		}
+
+	}
+		
+	public void disconnect(){
+		try {
+			if (connection != null)
+				connection.close();
+		} catch (ZebraPrinterConnectionException e) {
+
+		} finally {
+
+		}
+	}
+}

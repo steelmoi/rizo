@@ -1,0 +1,44 @@
+<div id='login' style="width: auto; height: auto;">
+	<div>
+		{{#if hasLogo}}
+			<img src="{{Logo}}" class="imgcenter" />
+		{{else}}
+			<br><br><br>
+		{{/if}}
+	</div>
+
+	<table width='100%'>
+		<tr>
+		</tr>
+		<tr>
+			<td><label id='lblUsuario'>User:</label></td>
+			<td><input type='text' id='txtUsuario' name='txtUsuario' value='' /></td>
+		</tr>
+
+		<tr>
+			<td><label id='lblPassword'>Password:</label></td>
+			<td><input type='password' id='txtPassword'	name='txtPassword' value='' /></td>
+		</tr>
+		<tr>
+			<td align='center' colspan='2'>
+				<!--  button id='btnEntrar' name='btnEntrar' data-theme="a"	onClick='btnEntrar_Click();'>Log in</button -->
+				<a href="#" id='btnEntrar' name='btnEntrar' onClick='btnEntrar_Click();' data-role="button" data-theme="a" data-icon="check">Log in</a>
+			</td>
+		</tr>
+		
+		
+		<tr>
+			<td align='center' colspan='2'>
+				<br><br>
+				Version 2.0
+			</td>
+		</tr>
+	</table>
+	
+</div>
+<script>
+	function onLogin()
+	{
+		
+	}
+</script>

@@ -1,0 +1,84 @@
+<div class="row">
+		 <div class="col-xs-12">
+<div id='Inventario'>
+	<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+	
+	<div class="row"">
+	    <div class="col-xs-4">Route <strong><span id='spRuta'></span></strong></div>
+	    <div class="col-xs-8">Date <strong><span id='spFecha'></span></strong></div>
+	</div>
+	<div class="row">
+		 <div class="col-xs-12">
+		     <table id='tblInventario' class="table table-striped">
+				<thead>
+					{{#if initial}}
+						<tr>									
+							<th>Code</th>
+							<th>Name</th>							
+							<th>Weigth</th>
+							<th>Box</th>															
+						</tr>
+					{{/if}}
+					{{#if inventory}}
+						<tr>									
+							<th>Code</th>
+							<th>Name</th>
+							<th>Batch</th>
+							<th>Weigth</th>
+							<th>Boxes</th>															
+						</tr>
+					{{/if}}
+				</thead>
+				
+				<tbody>
+				    {{#if inventory}}
+						{{#each items}}
+					    <tr>					    
+						      <td>{{clave}}</td>
+						      <td>{{nombre}}</td>
+						      <td>{{lote}}</td>
+						      <td align="right">{{existencia}}</td>
+						      <td align="right">{{caja}}</td>						    
+					    </tr>
+					 	{{/each}}
+					{{/if}}
+					
+					{{#if initial}}
+						{{#each items}}
+					    <tr>
+							<td>{{codigo_producto}}</td>
+							<td>{{nombre_producto}}</td>							
+							<td align="right">{{cantidad}}</td>
+							<td align="right">{{cantidad_cajas}}</td>
+						</tr>
+						{{/each}}						
+					{{/if}}
+																									
+					<tr>
+						{{#if inventory}}
+							<td align='right' colspan='3'>TOTAL</td>
+						{{else}}
+							<td align='right' colspan='2'>TOTAL</td>
+						{{/if}}					
+						<td align='center'>{{total}}</td>
+						<td align='right'>{{totalCajas}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<div class="row">
+		 <div class="col-xs-12">
+		 	<a href="#"  id='btnImpInventario' name='btnImpInventario' onClick='btnImpInventario_Click();' data-role="button" data-theme="a" data-icon="grid">Print</a>
+		 	
+		 	<!-- a href="#" class="btn btn-success btn-lg" id='btnImpInventario' name='btnImpInventario' onClick='btnImpInventario_Click();'>
+		      <span class="glyphicon glyphicon-print"></span> Imprimir>
+		      <button id='btnImpInventario' name='btnImpInventario' onClick='btnImpInventario_Click();'>Imprimir</button>
+		    </a -->
+		 </div>
+	</div>
+</div>		
+
+	</div>
+</div>

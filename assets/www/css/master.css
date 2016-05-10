@@ -1,0 +1,239 @@
+  body {
+    background:#222 none repeat scroll 0 0;
+    color:#fff;
+    font-family:Helvetica;
+    font-size:72%;
+    line-height:1.5em;
+    margin:0;
+    border-top:1px solid #393939;
+  }
+
+  #info{
+    background:#ffa;
+    border: 1px solid #ffd324;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    clear:both;
+    margin:15px 6px 0;
+    width:295px;
+    padding:4px 0px 2px 10px;
+  }
+  
+  #info > h4{
+    font-size:.95em;
+    margin:5px 0;
+  }
+ 	
+  #stage.theme{
+    padding-top:3px;
+  }
+
+  /* Definition List */
+  #stage.theme > dl{
+  	padding-top:10px;
+  	clear:both;
+  	margin:0;
+  	list-style-type:none;
+  	padding-left:10px;
+  	overflow:auto;
+  }
+
+  #stage.theme > dl > dt{
+  	font-weight:bold;
+  	float:left;
+  	margin-left:5px;
+  }
+
+  #stage.theme > dl > dd{
+  	width:45px;
+  	float:left;
+  	color:#a87;
+  	font-weight:bold;
+  }
+
+  /* Content Styling */
+  #stage.theme > h1, #stage.theme > h2, #stage.theme > p{
+    margin:1em 0 .5em 13px;
+  }
+
+  #stage.theme > h1{
+    color:#eee;
+    font-size:1.6em;
+    text-align:center;
+    margin:0;
+    margin-top:15px;
+    padding:0;
+  }
+
+  #stage.theme > h2{
+  	clear:both;
+    margin:0;
+    padding:3px;
+    font-size:1em;
+    text-align:center;
+  }
+
+  /* Stage Buttons */
+  #stage.theme a.btn{
+  	border: 1px solid #555;
+  	-webkit-border-radius: 5px;
+  	border-radius: 5px;
+  	text-align:center;
+  	display:block;
+  	float:left;
+  	background:#444;
+  	width:150px;
+  	color:#9ab;
+  	font-size:1.1em;
+  	text-decoration:none;
+  	padding:1.2em 0;
+  	margin:3px 0px 3px 5px;
+  }
+  #stage.theme a.btn.large{
+  	width:308px;
+  	padding:1.2em 0;
+  }
+
+/**/
+
+/*input {
+    border: 1px solid #ccc;
+    background: #fff;
+	height:27px;
+	height: 35px;
+}*/
+
+.div
+{
+	position: relative;
+	align:left;
+	font-size: 12px;
+	color: #666;
+	font-weight: bold;
+	text-align: left;
+}
+
+#divVtaHeader
+{
+	height: 25%;
+}
+
+#divVtaGrid
+{
+	height: 50%;
+	overflow:auto;
+}
+
+#divVtaFooter
+{
+	height: 25%;
+}
+IMG.imgcenter
+{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border:none;
+}
+label
+{
+	color:#333333;
+	text-align:center;
+	font-size:15px;
+	
+}
+#heading-tablas
+{
+	color:#333333;
+	font-size:10px;
+}
+
+.tabla
+{
+   clear: none;
+   overflow: auto;
+}
+.fila
+{
+   clear: both;
+   .
+}
+
+.columna
+{
+   float: left;
+   width: 150px;
+   border-right-width: 0px;
+   border-left-width: 0px;
+   border-top-width: 0px;
+}
+.grid
+{
+	width: auto; 
+	height: 240px; 
+	border-style: solid; 
+	border-width: 1px; 
+	overflow-y: scroll;
+}
+
+.gridPrinter
+{
+	width: auto; 
+	height: 200px; 
+	border-style: solid; 
+	border-width: 1px; 
+	overflow-y: scroll;
+}
+
+.TituloVentana{
+	background:#969696 url(ie-overlay.png) repeat-x;
+	background:-moz-linear-gradient(top, #EF6224, #B6400E);
+	background:-webkit-gradient(linear, left top, left bottom, from(#EF6224), to(#B6400E));
+	color:#FFF;
+	padding:8px 0px 8px 0px;
+	width:auto;
+}
+
+.scroll {
+     width:auto;
+     height:50%;
+     background-color:#F2F2F2;
+     overflow:auto;
+}
+
+/* *{
+	margin:0;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	font-family: Georgia, sans-serif;
+}
+canvas{
+	cursor: crosshair;
+	border:black solid 1px;
+}
+#clr div{
+	cursor:pointer;
+	width:20px;
+	height:20px;
+	float:left;
+}*/
+
+#popupPanel-popup {
+   right: auto !important;
+    left: 0 !important;
+}
+#popupPanel {
+    width: 250px;
+    border: 1px solid #000;
+    border-right: none;
+    background: rgba(0,0,0,.5);
+    margin: -1px 0;
+}
+#popupPanel .ui-btn {
+    margin: 2em 15px;
+}
+
+/* fix rtl for demo */
+ .chzn-rtl .chzn-drop { left: -9000px; }
+

@@ -1,0 +1,51 @@
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+			<td>Code</td>
+			<td>Batch</td>
+			<td>Description</td>
+			<td>Price</td>
+			<td>Qty</td>
+			{{#isSale gridName}}
+			<td>Boxes</td>
+			{{/isSale}}
+			<td>Total</td>
+		</tr>
+	</thead>
+	
+	<tbody>
+		{{#isSale gridName}}
+			{{#each aProductos}}
+				<tr>
+					<td><input type="checkbox" class=""></td>
+					<td>{{Clave}}</td>
+					<td>{{Lote}}</td>
+					<td>{{Nombre_producto}}</td>
+					<td align="right">{{Precio}}</td>
+					<td align="right">{{Cantidad}}</td>					
+					<td align="right">{{CantidadCaja}}</td>					
+					<td align="right">						
+						{{subtotal}}					
+					</td>
+				</tr>
+			{{/each}}
+		{{else}}
+			{{#each aProductos}}
+				<tr>
+					<td><input type="checkbox" class=""></td>
+					<td>{{Clave}}</td>
+					<td>{{Lote}}</td>
+					<td>{{Nombre_producto}}</td>
+					<td align="right">{{Precio}}</td>
+					<td align="right">{{Cantidad}}</td>								
+					<td align="right">					
+						{{subtotal}}					
+					</td>
+				</tr>
+			{{/each}}
+		{{/isSale}}
+	</tbody>
+</table>

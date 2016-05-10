@@ -1,0 +1,108 @@
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+
+<div id="rpt_ventas_diaria">
+	<center><bold>Daily Summary</bold></center>
+	<table class="table table-striped" id="tblRuta">
+		<tbody>
+			<tr>
+				<td>AREA</td>
+				<td>{{Area}}</td>				
+			</tr>
+			<tr>
+				<td>FECHA</td>
+				<td>{{Fecha}}</td>				
+			</tr>
+			<tr>
+				<td>ROUTE#</td>
+				<td>{{Ruta}}</td>				
+			</tr>
+			<tr>
+				<td>SALESMAN</td>
+				<td>{{Vendedor}}</td>				
+			</tr>
+		</tbody>
+	</table>
+	
+	<center><bold>INVOICES</bold></center>
+	<table class="table table-striped" id="tblVentaRuta">
+		<tbody>
+			<tr>
+				<td>NO. INVOICES L</td>
+				<td>{{Del}}</td>
+				<td>TO</td>
+				<td>{{Al}}</td>
+			</tr>
+			<tr>
+				<td># SALES</td>
+				<td colspan="3" align="right">{{Ventas}}</td>				
+			</tr>
+			<tr>
+				<td># CHECKS</td>
+				<td colspan="3" align="right">{{Cheques}}</td>				
+			</tr>
+			<tr>
+				<td>AMOUNT CHECKS</td>
+				<td colspan="3" align="right">{{TotalVentaCheques}}</td>				
+			</tr>
+			<tr>
+				<td>AMOUNT CASH</td>
+				<td colspan="3" align="right">{{TotalVentaEfectivo}}</td>				
+			</tr>
+			<tr>
+				<td>T O T A L $</td>
+				<td colspan="3" align="right">{{TotalVenta}}</td>				
+			</tr>
+		</tbody>
+	</table>
+	
+	<center><bold>Collection</bold></center>
+	<table class="table table-striped" id="tblCobranzaRuta">
+		<tbody>
+			<tr>
+				<td># INVOICES </td>
+				<td align="right">{{Cobrados}}</td>				
+			</tr>
+			<tr>
+				<td># CHECKS</td>
+				<td align="right">{{ChequesCobranza}}</td>				
+			</tr>
+			<tr>
+				<td>AMOUNT CHECK</td>
+				<td align="right">{{TotalCobranzaCheques}}</td>				
+			</tr>
+			<tr>
+				<td>AMOUNT CASH</td>
+				<td align="right">{{TotalCobranzaEfectivo}}</td>				
+			</tr>
+			<tr>
+				<td>T O T A L $</td>
+				<td align="right">{{CobranzaVenta}}</td>				
+			</tr>
+		</tbody>
+	</table>
+
+	<center><h1><bold>RESUMEN</bold></h1></center>
+	<table class="table table-striped" id="tblTotalRuta">
+		<tbody>
+			<tr>
+				<td># CHECK</td>
+				<td align="right">{{GranTotalC}}</td>				
+			</tr>
+			<tr>
+				<td>AMOUNT CHECKS</td>
+				<td align="right">{{TotalCheques}}</td>				
+			</tr>
+			<tr>
+				<td>AMOUNT CASH$</td>
+				<td align="right">{{TotalEfectivo}}</td>				
+			</tr>
+			<tr>
+				<td>RESUMEN TOTAL $</td>
+				<td align="right">{{GranTotal}}</td>				
+			</tr>
+		</tbody>
+	</table>
+	
+	<a href="#"  id='btnImpVtaDiaria' name='btnImpVtaDiaria' onClick='btnImpVtaDiaria_Click();' data-role="button" data-theme="a" data-icon="grid">PRINT</a>
+</div>

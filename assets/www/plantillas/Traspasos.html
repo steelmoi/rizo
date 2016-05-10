@@ -1,0 +1,140 @@
+<div id='Traspasos'>
+	<div id='TraspasosPrincipal' data-role="fieldcontain">
+		<table width='100%'>
+			<tr>
+				<td>
+					<!-- button id='btnMovimientos' name='btnMovimientos' data-theme="b"
+						onClick='btnMovimientos_Click();' data-role="button" data-icon="arrow-u">Obtener Movimientos</button -->
+					
+					<a href="#" id='btnMovimientos' name='btnMovimientos' data-theme="a"
+						onClick='btnMovimientos_Click();' data-role="button" data-icon="arrow-u">Get Info</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<div class="grid" id="grid-transfer">
+						
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<!-- button id='btnEntrarTraspaso' name='btnEntrarTraspaso' data-theme="b"
+						onClick='btnEntrarTraspaso_Click("TraspasosPrincipal", "TraspasoAuxiliar", "tblVentasGral");'>Entrar Movimientos</button -->
+					
+					<a href="#" id='btnEntrarTraspaso' name='btnEntrarTraspaso' data-theme="a"
+						onClick='btnEntrarTraspaso_Click("TraspasosPrincipal", "TraspasoAuxiliar", "tblVentasGral");' data-role="button" data-icon="check">Save Information</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<div id='TraspasoAuxiliar' style='display: none;'>
+		<div id='divTipoProducto' style='display: none;'>
+			<table width='100%'>
+				<tr>
+					<td><input type="radio" data-mini="true" name="rbRizo"
+						onClick="rbRizo_click();" id="rbRizo" class="custom" /> <label
+						for="rbRizo">Rizo</label></td>
+					<td><input type="radio" data-mini="true" name="rbOtro"
+						onClick="rbOtro_click();" id="rbOtro" class="custom" /> <label
+						for="rbOtro">Others</label></td>
+				</tr>
+			</table>
+		</div>
+		<div data-role="fieldcontain">
+			<fieldset data-role="controlgroup">
+				<label for="lblCodigoBarras">Barcode: </label> <input
+					id="txtCodigoBarras" value=""
+					onkeydown="txtCodigoBarras_keyDown(event, this);" /> <input
+					type="checkbox" data-mini="true" name="chkManual"
+					onClick="chkManual_click();" id="chkManual" class="custom" /> <label
+					for="chkManual">Manual</label>
+			</fieldset>
+
+			<fieldset data-role="controlgroup">
+				<label for="lblProducto"> Product: </label> <select
+					data-mini="true" id='cmbProducto' id='cmbProducto' data-theme="a"
+					onChange='cmbProducto_Change(this);'></select>
+			</fieldset>
+
+			<div class="tabla">
+				<div class="fila">
+					<div class="columna">
+						Code:<input type='text' id='txtCodigo' name='txtCodigo'
+							readonly='readonly' />
+					</div>
+					<div class="columna">
+						Lote:<input type='text' id='txtLote' name='txtLote' onBlur='txtLote_Blur(this);' />
+					</div>
+				</div>
+				<div class="fila">
+					<div class="columna">
+						Weigth or Pieces: <input type='text' id='txtCantidad' value='0.0'
+							name='txtCantidad' />
+					</div>
+					<div class="columna">
+						Boxes: <input type='text' id='txtCajas' name='txtCajas' onBlur='txtCajas_Blur(this);' value='0' />
+					</div>
+				</div>
+				<div class="fila">
+					<div class="columna">
+						Price:<input type='text' id='txtPrecio' name='txtPrecio'
+							value='0.0' />
+					</div>
+				</div>
+			</div>
+
+			<div class="tabla">
+				<div class="fila">
+					<div class="columna">
+						<!-- button id='btnAgregar' name='btnAgregar' data-theme="b"
+							data-icon="plus" onClick='btnAgregar_Click("tblVentasGral");'>Agregar</button -->
+							
+						<a href="#" id='btnAgregar' name='btnAgregar' data-theme="a"
+							data-icon="plus" onClick='btnAgregar_Click("tblVentasGral");' data-role="button">Add</a>
+					</div>
+					<div class="columna">
+						<!-- button id='btnQuitar' name='btnQuitar' data-theme="b"
+							data-icon="minus"
+							onClick="btnQuitar_Click('tblVentasGral', '0');">Quitar</button -->
+						<a href="#" id='btnQuitar' name='btnQuitar' data-theme="a"
+							data-icon="minus"
+							onClick="btnQuitar_Click('tblVentasGral', '0');" data-role="button">Delete</a>
+					</div>
+				</div>
+			</div>
+			<div class="grid" id="tblVentasGral">
+				
+			</div>
+
+			<div class="fila">
+				<div class="columna">
+					<!-- button id='btnAceptarTraspaso' name='btnAceptarTraspaso' data-theme="b"
+						data-icon="check"
+						onClick='btnAceptarTraspaso_Click("tblVentasGral", "tblTraspasos");'>Aceptar</button -->
+						
+						<a href="#" id='btnAceptarTraspaso' name='btnAceptarTraspaso' data-role="button" data-theme="a"
+						data-icon="check"
+						onClick='btnAceptarTraspaso_Click("tblVentasGral", "tblTraspasos");'>Accept</a>
+				</div>
+				<div class="columna">
+					<!-- button id='btnCancelarVta' name='btnCancelarVta' data-theme="b"
+						data-icon="delete"
+						onClick="btnCancelarTraspaso_Click();">Cancelar</button -->
+						
+					<a href="#" id='btnCancelarVta' name='btnCancelarVta' data-role="button" data-theme="a"
+						data-icon="delete"
+						onClick="btnCancelarTraspaso_Click();">Cacel</a>
+				</div>
+			</div>			
+		</div>
+	</div>
+</div>
+<script>
+	function onTraspasos()
+	{
+		
+	}
+</script>

@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<div class="row">
+	<div class="col-xs-12">
+		<div id="rpt_ventas_Creditos">
+			<center><h3><bold>Resales Credit</bold></h3></center>
+			<table  class="table table-striped" id="resales_credits">
+				<thead>
+					<tr>
+					  <th width="10%">CODE</th>
+				      <th width="55%">NAME</th>
+				      <th width="15%">LOTE</th>
+				      <th width="10%">QTY</th>
+				      <th width="10%">BOXES</th>
+				    <tr>	      
+			    </thead>
+				 <tbody>
+			      {{#each CreditosBuenos}}
+			        <tr>
+			          <td align="left">{{clave}}</td>
+			          <td align="left">{{nombre}}</td>
+			          <td align="left">{{lote}}</td>
+			          <td align="right">{{cantidad}}</td>
+			          <td align="right">{{caja}}</td>      
+			        </tr>
+			      {{/each}}
+			      	<tr>
+			      		<td align="center" colspan="3"> T O T A L</td>
+			      		<td align="right">{{cantBueno}}</td>
+			      		<td align="right">{{cajasBueno}}</td>
+			      	</tr>
+			    </tbody>
+			</table>
+			<br>
+			<center><h3><bold>Return Credit</bold></h3></center>
+			<table  class="table table-striped" id="return_credits">
+				<thead>
+					<tr>
+					  <th width="10%">CODE</th>
+				      <th width="55%">NAME</th>
+				      <th width="15%">LOTE</th>
+				      <th width="10%">QTY</th>
+				      <th width="10%">BOXES</th>
+				    <tr>	      
+			    </thead>
+				 <tbody>
+			      {{#each CreditosMalos}}
+			        <tr>
+			          <td align="left">{{clave}}</td>
+			          <td align="left">{{nombre}}</td>
+			          <td align="left">{{lote}}</td>
+			          <td align="right">{{cantidad}}</td>
+			          <td align="right">{{caja}}</td>      
+			        </tr>
+			      {{/each}}
+			      	<tr>
+			      		<td align="center" colspan="3"> T O T A L</td>
+			      		<td align="right">{{cantMalo}}</td>
+			      		<td align="right">{{cajasMalo}}</td>
+			      	</tr>
+			    </tbody>
+			</table>
+				
+			<a href="#"  id='btnImpVtaDiaria' name='btnImpVtaDiaria' onClick='btnImpRptCredits_Click();' data-role="button" data-theme="a" data-icon="grid">PRINT</a>
+		</div>
+	</div>
+</div>

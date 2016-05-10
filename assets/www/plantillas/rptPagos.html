@@ -1,0 +1,46 @@
+<script src="./bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+<div id="rpt_ventas_Pagos">	
+	<table class="table table-striped" id="tblPayments">
+		<thead>
+		  <th width="25%">DATE</th>
+	      <th width="25%">INVOICE</th>
+	      <th width="25%">PAYMENT</th>
+	      <th width="25%">AMOUNT</th>
+	    </thead>
+		 <tbody>
+	      {{#each Pagos}}
+	        <tr>
+	          <td align="left">{{Fecha}}</td>
+	          <td align="left">{{Factura}}</td>
+	          <td align="left">{{TipoPago}}</td>
+	          <td align="right">{{monto}}</td>	          
+	        </tr>
+	      {{/each}}
+	    </tbody>
+	</table>
+	
+	<center><h1><bold>Total</bold></h1></center>
+	<table class="table table-striped" id="tblPaymentsSumary">
+		<tbody>
+			<tr>
+				<td># CHECKS</td>
+				<td align="right">{{NoTotalCheques}}</td>				
+			</tr>
+			<tr>
+				<td>AMOUNT CHECKS</td>
+				<td colspan="2" align="right">{{TotalCheques}}</td>				
+			</tr>
+			<tr>
+				<td>AMOUNT CASH</td>
+				<td colspan="2" align="right">{{TotalEfectivo}}</td>				
+			</tr>
+			<tr>
+				<td>TOTAL $</td>
+				<td colspan="2" align="right">{{GranTotal}}</td>				
+			</tr>
+		</tbody>
+	</table>
+	
+	<a href="#"  id='btnImpPayments' name='btnImpPayments' onClick='btnImpPayments_Click();' data-role="button" data-theme="a" data-icon="grid">Imprimir</a>
+</div>

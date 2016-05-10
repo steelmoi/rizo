@@ -1,0 +1,375 @@
+<div id="clientesVentas">
+	<table width='100%'>
+		<tr>
+			<td>
+				<select name="slider" id="cmbFiltro" onChange="cmbFiltro_Change(this);">
+						<option value="Ruta">Only Route  </option>
+						<option value="Otros">Others  </option>
+				</select><br><br>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div data-role="content">
+					<ul id="lvClienteVentas"
+						data-filter-placeholder="Select a customer" 
+						data-role="listview" data-mini="true" data-autodividers="false"
+						data-filter="true" data-inset="true">
+						<!-- data-inset="true" ocupa todo el ancho dela pantalla -->
+						<br>
+
+					</ul>
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div id='ventas_'>
+
+	<div id='vtaPrincipal' style='display: none;' data-role="fieldcontain">
+
+		
+		<fieldset data-role="controlgroup">
+			<label for="lblNameFactura">Invoice: </label>
+			<label id="id='lblFactura'">
+			<span id='txtFolio'></span> 
+			</label>
+		</fieldset>
+
+		<fieldset data-role="controlgroup">
+			<label for="lblNegocio"> Customer: </label>
+			<select name='cmbNegocio' data-theme="a" data-mini="true" id='cmbNegocio' onChange='cmbNegocio_Change(this);' disabled></select>
+		</fieldset>
+
+		<div class="tabla">
+			<div class="fila" id="productAdd">				
+				<div class="columna">
+				<a href="#" id='btnProductos' name='btnProductos'
+				onClick='btnProductos_Click("vtaPrincipal", "vtaAuxiliar", "tblVentasGral");' data-mini="true"  data-role="button"
+				data-theme="a" data-icon="plus">Add Items</a>
+				</div>
+			</div>
+			<div class="fila" id="productPay" style="display: none;">				
+				<div class="columna">
+				<a href="#" id='btnAddPay' name='btnAddPay' data-mini="true"
+				onClick='GotoPayFromSale();' data-role="button"
+				data-theme="a" data-icon="plus">Pay</a>
+				</div>
+			</div>
+		</div>
+		
+		<div id='divTipoCredito' style='display: none;'>
+			<table width='100%'>
+				<tr>						
+					<td>
+						<label for="cmbTipoCredito">Credit Type: </label>
+						<select data-mini="true" name='cmbTipoCredito' data-theme="a" data-mini="true" id='cmbTipoCredito'>
+							<option value='-1'>Select a credit</option>
+							<option value='1'>Resale Credit</option>
+							<option value='2'>Due Credit</option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		</div>
+		
+		
+			<div class= "grid" id='tblVentas'>
+
+			</div>					
+ 		
+ 			<div class="tabla">
+				<div class="fila">
+					<div class="columna">
+						<label id='lblSubtotal'>Subtotal:</label>
+					</div>
+					<div class="columna">
+						<input size='5' data-mini="true" type='text' readonly='readonly'	id='txtSubtotal' name='txtSubtotal' value='0.0'>
+					</div>
+				</div>
+				<div class="fila">
+					<div class="columna">
+						<label id='lblIva'>Tax:</label>
+					</div>
+					<div class="columna">
+						<input size='5' type='text' data-mini="true" readonly='readonly' id='txtIva' name='txtIva' value='0.0'>
+					</div>
+				</div>
+				<div class="fila">
+					<div class="columna">
+						<label id='lblTotal'>Total:</label>
+					</div>
+					<div class="columna">
+						<input size='5' data-mini="true" type='text' readonly='readonly'	id='txtTotal' name='txtTotal' value='0.0'>
+					</div>
+				</div>
+				
+			</div>
+
+
+	</div>
+	
+	 <div id='divNotaCredito' style='display: none;'>
+			<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+					
+					<input type="checkbox" onClick="optNC_click();" id="optNC" data-theme="a" data-mini="true" />
+					<label for="optNC">Add Credit</label> 	
+					
+					</fieldset>
+	</div>
+		
+		<div class="fila">
+					<div class="columna">
+						<label id='lblRef'>Reference:</label>
+					</div>
+					<div class="columna">
+						<input size='5' data-mini="true" type='text' readonly='readonly'	id='txtRef' name='txtRef' value=''>
+					</div>
+				</div>
+		
+		<div class="fila">
+					<div class="columna">
+						<label id='lblTotal'>Amount Credit:</label>
+					</div>
+					<div class="columna">
+						<input size='5' data-mini="true" type='text' readonly='readonly'	id='txtNC' name='txtNC' value='0.0'>
+					</div>
+				</div>
+		
+		<div class="fila">
+					<div class="columna">
+						<label id='lblTotal'>Total Payment:</label>
+					</div>
+					<div class="columna">
+						<input size='5' data-mini="true" type='text' readonly='readonly'	id='txtAmountPay' name='txtAmountPay' value=''>
+					</div>
+				</div>
+				
+	</div>
+	
+	
+    <div id='vtaAuxiliar' style='display: none;'>
+    		<div id='divTipoProducto' style='display: none;'>
+				<table width='100%'>
+					<tr>
+						<td>
+							<input type="radio" data-mini="true" name="rbRizo" onClick="rbRizo_click();" id="rbRizo" class="custom" />
+							<label for="rbRizo">Rizo</label>
+						</td>
+						<td>
+							<input type="radio" data-mini="true" name="rbOtro" onClick="rbOtro_click();" id="rbOtro" class="custom" />
+							<label for="rbOtro">Other</label>
+						</td>
+					</tr>
+				</table>
+			</div>
+			
+			
+    		<div data-role="fieldcontain">
+		    	<fieldset data-role="controlgroup">
+					<label for="lblCodigoBarras"> Barcode: </label><!-- 150/4BZ-BFD/15.22 -->
+					<input id="txtCodigoBarras" data-mini="true" value="" onkeydown="txtCodigoBarras_keyDown(event, this);" />
+					
+					<input type="checkbox" data-mini="true" name="chkManual" onClick="chkManual_click();" id="chkManual" class="custom" />
+					<label for="chkManual">Manual</label> 					
+				</fieldset>
+				
+				<fieldset data-role="controlgroup" >
+					<label for="lblProducto"> Product: </label>
+					<select	data-mini="true" id='cmbProducto' id='cmbProducto'  data-theme="a" onChange='cmbProducto_Change(this);'></select>
+				</fieldset>
+				
+				<div class="tabla">
+					<div class="fila">
+						<div class="columna">
+							Code:<input type='text' data-mini="true" id='txtCodigo' name='txtCodigo' readonly='readonly' />
+						</div>
+						<div class="columna">
+							Batch:<input type='text' data-mini="true" id='txtLote' name='txtLote' onBlur='txtLote_Blur(this);'  />
+						</div>
+					</div>
+					<div class="fila">
+						<div class="columna">
+							Weight or Pieces: <input type='text' data-mini="true" id='txtCantidad' value='0.0' name='txtCantidad' />
+						</div>
+						<div class="columna">
+							Boxes: <input type='text' id='txtCajas' data-mini="true" name='txtCajas' onBlur='txtCajas_Blur(this);' value='0' />
+						</div>
+					</div>
+					<div class="fila">
+						<div class="columna">
+							Price:
+							<input type='text' id='txtPrecio' data-mini="true" name='txtPrecio' value='0.0' />
+						</div>
+						<div class="columna">
+							
+						</div>
+					</div>
+					
+					<div class="fila">
+						<div class="columna">
+							Total Weigth/Pieces:
+							<input type='text' data-mini="true" id='txtTotalCantidad' value='0.0' name='txtTotalCantidad' />
+						</div>
+						<div class="columna">
+							Total Boxes:
+							<input type='text' id='txtTotalCajas' data-mini="true" name='txtTotalCajas' value='0' />
+						</div>
+					</div>
+					<div class="fila">
+						<div class="columna">
+							<a href="#" id='btnAgregar' data-theme="a" data-role="button" data-icon="plus" data-mini="true" onClick='btnAgregar_Click("tblVentasGral");'>Add</a>
+						</div>
+						<div class="columna">							
+							<a href="#" id='btnQuitar'  data-theme="a" data-role="button" data-icon="minus" data-mini="true" onClick='btnQuitar_Click("tblVentasGral", "0");'>Delete</a>
+						</div>
+					</div>
+				</div>
+					<div class= "grid" id="tblVentasGral">
+						<!--  table border="2" id="tblVentasGral" width="100%">
+							<tr class='heading-tablas'>
+								<td></td>
+								<td>Clave</td>
+								<td>Lote</td>
+								<td>Descripci&oacute;n</td>
+								<td>Precio</td>
+								<td>Cantidad</td>
+								<td>Subtotal</td>
+							</tr>
+						</table -->
+					</div>
+					
+					<div class="fila">
+						<div class="columna">
+							<!-- button id='btnAceptarVta'  name='btnAceptarVta' data-theme="b" data-icon="check" onClick='btnAceptarVta_Click("tblVentasGral", "tblVentas", true);'>Aceptar</button -->
+							<a href="#" id='btnAceptarVta'  id='btnAceptarVta' data-theme="a" data-role="button" data-icon="check" data-mini="true" onClick='btnAceptarVta_Click("tblVentasGral", "tblVentas", true);'>Accept</a>
+						</div>
+						<div class="columna">
+							<!-- button id='btnCancelarVta'  name='btnCancelarVta' data-theme="b" data-icon="delete" onClick="btnCancelarVta_Click('tblVentasGral', 'tblVentas');">Cancelar</button -->
+							<a href="#" id='btnCancelarVta'  id='btnCancelarVta' data-theme="a" data-role="button" data-icon="delete" data-mini="true" onClick="btnCancelarVta_Click('tblVentasGral', 'tblVentas');">Cancel</a>
+						</div>
+					</div>
+				<!-- /div -->
+    		</div>
+    </div>
+    <div id='venta_pagos' style='display: none;'>
+	<table width='100%'>
+		<!-- <tr>
+			<td align='left'><label for="cmbNegocioPagos"> Customer: </label></td>			
+		</tr>
+		<tr>
+			<td colspan="2">
+				<select name='cmbNegocioPagos' data-theme="a"
+				data-mini="true" id='cmbNegocioPagos'
+				onChange='cmbNegocioPagos_change(this);' class="select"></select>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" colspan='2'>
+				<a href="#" id="btnOtrosClientes" data-icon="search"  data-role="button" name="btnOtrosClientes" data-theme="a" data-mini="true" onClick="btnOtrosClientes_Click();">Others</a>
+			</td>
+		</tr>
+		-->
+		<tr>
+			<td align='left'><label for="txtFactura">Invoice: </label></td>
+			<td>
+				<input size='15' data-mini="true" type='text' id='txtFactura' name='txtFactura' onblur="txtFactura_blur(this);">
+			</td>
+		</tr>		
+ 
+		<tr>
+			<td align='left'><label for="cmbTipoPago">Select Payment: </label></td>
+			<td>
+				<select data-mini="true" name="cmbTipoPago" data-theme="a" id='cmbTipoPago' class="select" onChange='cmbTipoPago_Change(this);'>
+						<option value='1'>Cash</option>
+						<option value='2'>Cheque</option>
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td align='left'><label for="txtNumCheque">#Check: </label></td>
+			<td>
+				<input size='5' data-mini="true" type='text' id='txtNumCheque' name='txtNumCheque'>
+			</td>
+		</tr>
+
+		<tr>
+			<td align='left'><label for="txtMonto">Amount: </label></td>
+			<td>
+				<input size='5' data-mini="true" type='text' id='txtMonto' name='txtMonto'>
+			</td>
+		</tr>
+
+		<tr>
+			<td align='left'><label for="txtComentarios">Comments: </label></td>
+			<td>
+				<input data-mini="true" type='text' id='txtComentarios' name='txtComentarios'>
+			</td>
+		</tr>
+		
+		<tr>
+			<td align='left' >
+				<input type='hidden' id='hfPagos' name='hfPagos' value=''>
+				<input type='hidden' id='hfTotalFactura' name='hfTotalFactura' value=''>
+				<!-- button id='btnAgregarPago' data-mini="true" name='btnAgregarPago'
+					data-theme="b" data-icon="plus" onClick="btnAgregarPago_Click();">Agregar
+					Pago</button -->
+				<a href="#" id='btnAgregarPago' 
+				onClick='btnAgregarPago_Click();' data-role="button"
+				data-theme="a" data-mini="true" data-icon="plus">Add Payment</a>
+			</td>
+			<td align='right'>		
+				<!-- button id='btnQuitarPago' data-mini="true" name='btnQuitarPago'
+					data-theme="b" data-icon="minus" onClick="btnQuitarPago_Click('tblPagos');">Quitar
+					Pago</button -->
+				<a href="#" id='btnQuitarPago'
+				onClick='btnQuitarPago_Click("tblPagos");' data-role="button"
+				data-theme="a" data-mini="true" data-icon="less">Delete Payment</a>
+				</td>
+		</tr>
+
+		<tr>
+			<td colspan='2'>
+				<table border="2" id="tblPagos" width="100%">
+					<tr class='heading-tablas'>
+						<td></td>
+						<td>Invoice</td>
+						<td>Date</td>
+						<td>Customer</td>
+						<td>Amount</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+		
+		<tr>
+			<td align='center' colspan='2'>				
+				<br><br>
+				<!-- button id='btnCancelarPagos' name='btnCancelarPagos'
+					data-theme="b" data-icon="delete" onClick="btnCancelarPagos_Click();">Cancelar</button -->
+					
+				<a href="#" id='btnCancelarPagos' name='btnCancelarPagos'
+				onClick='btnCancelarPagos_Click();' data-role="button"
+				data-theme="a" data-mini="true" data-icon="delete">Cancel</a>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<div id='PanelDeFirma' style='background: white; display: none;'>
+	<div id="contenedor_pizarra"> 
+		<canvas id="pizarra" height="200px">						
+		</canvas>
+	</div>
+</div>
+
+</div>
+<script>
+	function onVentas()
+	{
+		
+	}
+</script>
