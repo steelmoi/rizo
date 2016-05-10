@@ -23,7 +23,7 @@ var aPagos = new Array();
 var rptPagos = new Array();
 
 var curWindow = '';
-var g_isdebug = false;
+var g_isdebug = true;
 var g_imei = '99000334832640';
 var g_procesando_venta = false;
 var g_procesando_pagos = false;
